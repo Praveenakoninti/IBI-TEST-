@@ -1,0 +1,39 @@
+What will the following code's output be in sequence and explain why?
+function printNumber(num) {
+
+  console.log(num);
+
+}
+
+
+console.log(1);
+
+
+setTimeout(printNumber, 0, 2);
+
+
+setTimeout(printNumber, 100, 3);
+
+
+console.log(4);
+
+The output sequence will be as follows:
+
+```
+1
+4
+2
+3
+```
+
+Explanation:
+
+1. `console.log(1);`: This will log `1` to the console first.
+
+2. `setTimeout(printNumber, 0, 2);`: This will schedule the function `printNumber(2)` to be executed after a delay of 0 milliseconds. Although the delay is specified as 0, the function will still be executed asynchronously, but it will be placed in the event queue immediately. Since the event loop checks the event queue after the current call stack is empty, the function `printNumber(2)` will be executed after the main function completes.
+
+3. `setTimeout(printNumber, 100, 3);`: This will schedule the function `printNumber(3)` to be executed after a delay of 100 milliseconds. It will be placed in the event queue after the previous `setTimeout` call with `printNumber(2)`.
+
+4. `console.log(4);`: This will log `4` to the console after the previous `setTimeout` calls.
+
+After the main function finishes executing, the event loop will check the event queue and execute the functions `printNumber(2)` and `printNumber(3)`. This results in `2` and `3` being logged to the console after `1` and `4`, respectively. The order of the `setTimeout` calls and the event loop handling the queued tasks determine the final output sequence.

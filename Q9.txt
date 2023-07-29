@@ -1,0 +1,33 @@
+Q9.What will the code below output to the console and why?
+
+var arr1 = "john".split(''); 
+
+var arr2 = arr1.reverse();
+
+var arr3 = "jones".split('');
+
+arr2.push(arr3);
+
+console.log("array 1: length=" + arr1.length + " last=" + arr1.slice(-1));
+
+console.log("array 2: length=" + arr2.length + " last=" + arr2.slice(-1));
+output the following to the console:
+
+```
+array 1: length=5 last=j,o,n,e,s
+array 2: length=5 last=j,o,n,e,s
+```
+
+Explanation:
+
+1. `var arr1 = "john".split('');`: This line converts the string "john" into an array `['j', 'o', 'h', 'n']` using the `split()` method, which splits the string at each character.
+
+2. `var arr2 = arr1.reverse();`: This line assigns the reverse of `arr1` to `arr2`. The `reverse()` method reverses the elements of the array in place. Since `arr1` is now reversed, both `arr1` and `arr2` refer to the same array, which is `['n', 'h', 'o', 'j']`.
+
+3. `var arr3 = "jones".split('');`: This line converts the string "jones" into an array `['j', 'o', 'n', 'e', 's']` using the `split()` method.
+
+4. `arr2.push(arr3);`: This line appends the array `arr3` as a single element to the end of `arr2`. After this operation, `arr2` is `['n', 'h', 'o', 'j', ['j', 'o', 'n', 'e', 's']]`.
+
+5. `console.log("array 1: length=" + arr1.length + " last=" + arr1.slice(-1));`: This line logs the length of `arr1`, which is 5, and the last element of `arr1` using `slice(-1)`, which is the last character `'s'`.
+
+6. `console.log("array 2: length=" + arr2.length + " last=" + arr2.slice(-1));`: This line logs the length of `arr2`, which is 5, and the last element of `arr2` using `slice(-1)`, which is the nested array `['j', 'o', 'n', 'e', 's']`.

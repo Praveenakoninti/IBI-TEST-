@@ -1,0 +1,24 @@
+6.What is callback hell? Explain different ways to solve callback hell with examples each.
+JavaScript is a popular lightweight, interpreted compiled client-side scripting language. Most Web Applications use JavaScript on the client side. By providing JavaScript with a runtime environment, it can also be used on the server-side(Node.js).  
+
+Callback: A callback is a function that is passed as an argument to another function that executes the callback based on the result. They are basically functions that are executed only after a result is produced. Callbacks are an important part of asynchronous JavaScript.
+Ways to solve callback hell:
+
+1.Using named functions: Instead of anonymous functions, define named functions for callbacks to improve readability.
+asyncOperation1(param, function onOperation1Complete(result1) {
+  asyncOperation2(result1, function onOperation2Complete(result2) {
+    asyncOperation3(result2, function onOperation3Complete(result3) {
+      // Code to handle result3
+    });
+  });
+});
+2.Using Promises: Convert callbacks to Promises, allowing the use of .then() and .catch() for sequential and error handling.
+asyncOperation1(param)
+  .then(result1 => asyncOperation2(result1))
+  .then(result2 => asyncOperation3(result2))
+  .then(result3 => {
+    // Code to handle result3
+  })
+  .catch(error => {
+    // Error handling
+  });

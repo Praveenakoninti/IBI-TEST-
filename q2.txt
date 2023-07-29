@@ -1,0 +1,24 @@
+ //#region Explain the output of the above-given code and explain why?
+
+for (var i = 0; i < 5; i++) {
+
+  setTimeout(() => console.log(i), 100)
+
+}
+
+output: 5
+        5
+        5
+        5
+        5
+In this code snippet, a for loop is used to iterate from i = 0 to i = 4. For each iteration, 
+a setTimeout function is called with a delay of 100 milliseconds. The setTimeout function is 
+used to schedulethe execution of a function after the specified delay.
+the setTimeout function is asynchronous. 
+This means that it doesn't block the execution of the loop. Instead, it sets up a timer, and the loop continues
+running immediately without waiting for the 
+setTimeout callbacks to be executed.
+By the time the first callback is executed, the loop has already completed, and the value of i has reached 5,
+which is the exit condition of the loop (i < 5). Since the callback function inside setTimeout uses console.log(i) to 
+output the value of i, it will print the value of i at the time of execution. 
+In this case, the value of i is 5 in all the scheduled callbacks.

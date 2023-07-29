@@ -1,0 +1,15 @@
+7.Use Array.reduce() method to reverse the following given array
+
+const arr = [1, 2, 3, 4, 5]
+
+You can use the Array.reduce() method to reverse the given array as follows:
+const arr = [1, 2, 3, 4, 5];
+
+const reversedArr = arr.reduce((accumulator, currentValue) => {
+  return [currentValue, ...accumulator];
+}, []);
+
+console.log(reversedArr); // Output: [5, 4, 3, 2, 1]
+In the reduce() method, we start with an empty array [] as the initial value for the accumulator. Then, for each element in 
+the original array, we create a new array with the current element at the beginning followed by the existing accumulator elements. 
+This effectively reverses the order of elements, and the final result is the reversed array [5, 4, 3, 2, 1].

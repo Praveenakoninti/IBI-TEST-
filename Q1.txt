@@ -1,0 +1,28 @@
+1. What are the differences between cookie, local storage and session storage
+The HTTP protocol is one of the most important protocols for smooth communication between the server and the client. 
+The main disadvantage of the HTTP protocol it is a stateless protocol that means it does not track any kind of information 
+of response and request by the server and the client, So in order to resolve this problem, there are three ways to track .
+Cookies:
+-Cookies are small pieces of data stored as text files on the user's browser .
+-They are primarily used for client-side storage of small amounts of data (usually limited to 4KB).
+-Cookies are sent to the server with every HTTP request, which can increase the data overhead.
+-They can have an expiration date, meaning they can persist for a specified duration or remain 
+until the user clears their browser data.
+-Cookies can be set with specific domain and path restrictions.
+-They can be used for tracking user behavior, session management, and remembering user preferences.
+-It is supported by all the browser including older browser.
+
+Local Storage:
+
+-Local storage is a part of the Web Storage API and allows developers to store larger amounts of data (usually limited to 5-10MB) compared to cookies.
+-The data is stored as key-value pairs directly in the user's browser.
+Unlike cookies, local storage data is not sent to the server with each HTTP request, reducing data overhead.
+-The data in local storage remains even after the browser is closed and persists across sessions, unless explicitly cleared by the user or through code.
+-Local storage is useful for applications that require to store user settings, cache data, or maintain state between visits.
+Session Storage:
+
+
+-Like local storage, session storage is also part of the Web Storage API and provides a similar storage mechanism.
+-The storage capacity of session storage is 5MB.
+-The key difference is that session storage data is cleared when the user closes the browser or the current tab, effectively limited to the current browsing session.
+-Session storage is useful when you need to store temporary data that should be discarded after the user leaves the website or closes the tab.

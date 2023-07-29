@@ -1,0 +1,37 @@
+In what order will the numbers 1-4 be logged to the console when the code below is executed? Why?
+
+(function() {
+
+    console.log(1); 
+
+    setTimeout(function(){console.log(2)}, 1000); 
+
+    setTimeout(function(){console.log(3)}, 0); 
+
+    console.log(4);
+
+})();
+
+
+The numbers 1, 4, 3, and 2 will be logged to the console in the following order:
+
+```
+1
+4
+3
+2
+```
+
+Explanation:
+
+1. `console.log(1);`: This statement will be executed first, and it will log `1` to the console.
+
+2. `setTimeout(function(){console.log(2)}, 1000);`: This statement schedules the function `console.log(2)` to be executed after a delay of 1000 milliseconds (1 second). During this delay, the rest of the code continues to execute.
+
+3. `setTimeout(function(){console.log(3)}, 0);`: This statement schedules the function `console.log(3)` to be executed after a delay of 0 milliseconds. Even though the delay is specified as 0, the function will still be executed asynchronously, but it will be placed in the event queue immediately. Since the event loop checks the event queue after the current call stack is empty, this `console.log(3)` will be executed after the main function completes.
+
+4. `console.log(4);`: This statement will be executed after the first `console.log(1);`, logging `4` to the console.
+
+After the main function finishes executing, the event loop will check the event queue and find the function scheduled by `setTimeout(function(){console.log(3)}, 0);`. It will then execute `console.log(3)` and log `3` to the console.
+
+after 1 second (1000 milliseconds), the function scheduled by `setTimeout(function(){console.log(2)}, 1000);` will be executed, logging `2` to the console.
